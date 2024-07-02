@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DoublyLinkedListComponent {
-    private final DoublyLinkedList list = new DoublyLinkedList();
+    public final DoublyLinkedList list = DoublyLinkedList.getInstance();
 
     public void append(DoublyLinkedList.Element e, boolean elementValidation) {
         list.append(e, elementValidation);

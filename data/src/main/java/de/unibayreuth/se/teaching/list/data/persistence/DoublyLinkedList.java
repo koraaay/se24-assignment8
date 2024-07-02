@@ -18,7 +18,17 @@ public class DoublyLinkedList {
     private Element end;
     private int length;
 
+    private static DoublyLinkedList instance;
     private static final Logger logger = LoggerFactory.getLogger(DoublyLinkedListComponent.class);
+
+    DoublyLinkedList() {};
+
+    public static DoublyLinkedList getInstance(){
+        if(instance == null){
+            instance = new DoublyLinkedList();
+        }
+        return instance;
+    };
 
     /**
      * Add an element at the end of the list
