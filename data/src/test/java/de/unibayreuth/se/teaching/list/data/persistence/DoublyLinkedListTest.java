@@ -13,6 +13,27 @@ class DoublyLinkedListTest {
     @BeforeEach
     void setUp() {
         list = DoublyLinkedList.getInstance();
+        ListClearedObserver listClearedObserver = new ListClearedObserver();
+        list.attach(listClearedObserver);
+    }
+
+    @Test
+    void testListClearedObserverEffect() {
+        // Given: the list has elements
+        list.append(0.9);
+        Assertions.assertFalse(list.isEmpty());
+
+        // When: clearing the list
+        list.clear();
+
+        // Then: Verify the expected effect of ListClearedObserver
+        // This could be checking the state of ListClearedObserver, or its output
+        // For example, if ListClearedObserver increments a counter or changes its state
+        // Assertions.assertEquals(expectedState, listClearedObserver.getState());
+
+        // Note: This step requires you to know the specific effect or output of ListClearedObserver
+        // and have a way to access or check it. If ListClearedObserver logs a message,
+        // you might need to capture and check the log output, which is not shown here.
     }
 
 //    @Test
@@ -233,6 +254,7 @@ class DoublyLinkedListTest {
         // then: the string representation of the list is "0.9<->0.5<->0.4"
         Assertions.assertEquals("0.9<->0.5<->0.4", list.toString());
     }
+
 
     /**
      * Helper method to test begin and end pointers of a doubly linked list
